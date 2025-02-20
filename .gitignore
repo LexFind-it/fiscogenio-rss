@@ -14,3 +14,4 @@ __pycache__/
 # Ignore VSCode and system files
 .vscode/
 .DS_Store
+.env
