@@ -17,8 +17,7 @@ if not OPENAI_API_KEY:
     exit(1)
 
 import openai
-openai.api_key = OPENAI_API_KEY
-
+client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 #client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -80,7 +79,7 @@ def generate_summary(text, original_summary):
     Struttura il riassunto con un **breve titolo** che riassuma il tema principale e 2-3 frasi di spiegazione.
     """
     # response = client.chat.completions.create(
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4-turbo",
         messages=[
             {"role": "system", "content": "Sei un esperto di diritto tributario italiano."},
