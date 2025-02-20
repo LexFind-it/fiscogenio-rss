@@ -9,8 +9,14 @@ import io
 # Load API keys
 from config import OPENAI_API_KEY
 
-# Initialize OpenAI
-OpenAI.api_key = OPENAI_API_KEY
+# Load API key from environment variable
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+    print("❌ OpenAI API Key is missing! Set the OPENAI_API_KEY environment variable.")
+    exit(1)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Initialize BigQuery client
 # Get credentials from environment (set by GitHub Actions)
@@ -53,8 +59,6 @@ def extract_text_from_pdf(pdf_url):
 
 def generate_summary(text, original_summary):
     """Summarize the document using OpenAI"""
-
-    client = OpenAI(api_key=OPENAI_API_KEY)
 
     prompt = f"""
     Sei un esperto di diritto tributario italiano. Ti fornisco il testo di un documento fiscale ufficiale e il suo riassunto originale.

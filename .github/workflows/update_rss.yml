@@ -26,6 +26,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/credentials.json" >> $GITHUB_ENV
         shell: bash
 
+      - name: Set Up Environment Variables
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+        shell: bash
+
       - name: Run Script
         run: python main.py
 
