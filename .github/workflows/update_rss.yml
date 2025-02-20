@@ -22,8 +22,9 @@ jobs:
 
       - name: Set Up Google Cloud Credentials
         run: |
-          echo "${{ secrets.BIGQUERY_CREDENTIALS }}" > credentials.json
+          echo "${{ secrets.BIGQUERY_CREDENTIALS }}" | base64 --decode > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/credentials.json" >> $GITHUB_ENV
+        shell: bash
 
       - name: Run Script
         run: python main.py
