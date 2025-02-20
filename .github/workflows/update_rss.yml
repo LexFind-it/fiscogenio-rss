@@ -1,6 +1,7 @@
 name: Update RSS Feed
 
 on:
+  workflow_dispatch:  # Allows manual trigger
   schedule:
     - cron: "0 0 * * *"  # Runs every day at midnight UTC
 
