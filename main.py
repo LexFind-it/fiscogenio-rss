@@ -9,14 +9,12 @@ import openai
 # Load API keys
 from config import OPENAI_API_KEY
 
-# Load API key from environment variable
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
 if not OPENAI_API_KEY:
     print("❌ OpenAI API Key is missing! Set the OPENAI_API_KEY environment variable.")
     exit(1)
 
-openai.api_key = OPENAI_API_KEY
+# Load API key from environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize BigQuery client
 # Get credentials from environment (set by GitHub Actions)
@@ -76,7 +74,7 @@ def generate_summary(text, original_summary):
     Struttura il riassunto con un **breve titolo** che riassuma il tema principale e 2-3 frasi di spiegazione.
     """
 
-    response = openai.ChatCompletion.create(
+    response = openai.chat_completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "Sei un esperto di diritto tributario italiano che gestisce una pagina linkedin."},
