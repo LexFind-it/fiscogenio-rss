@@ -34,10 +34,9 @@ def fetch_documents():
     query = """
         SELECT title, url, original_summary, upload_date
         FROM `taxfinder-mvp.sources_metadata.documents_agenzia_entrate`
-        -- WHERE upload_date >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
-        WHERE upload_date >= TIMESTAMP_SUB('2024-11-20', INTERVAL 1 DAY)
+        WHERE upload_date >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
         ORDER BY upload_date DESC
-        LIMIT 1
+        LIMIT 5
     """
     return [dict(row) for row in client.query(query).result()]
 
