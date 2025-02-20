@@ -13,7 +13,16 @@ from config import OPENAI_API_KEY
 OpenAI.api_key = OPENAI_API_KEY
 
 # Initialize BigQuery client
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/Paolo/Library/Mobile Documents/com~apple~CloudDocs/LexFind_it/GCP/private_keys/R_Metadata_BQ/taxfinder-mvp-534c73e834c1.json"
+# Get credentials from environment (set by GitHub Actions)
+BIGQUERY_CREDENTIALS_PATH = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "credentials.json")
+
+# Debugging: Check if the credentials file exists
+if not os.path.exists(BIGQUERY_CREDENTIALS_PATH):
+    print(f"❌ Credentials file not found: {BIGQUERY_CREDENTIALS_PATH}")
+    exit(1)
+
+print(f"✅ Using Google credentials from: {BIGQUERY_CREDENTIALS_PATH}")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = BIGQUERY_CREDENTIALS_PATH
 client = bigquery.Client()
 
 def fetch_documents():
