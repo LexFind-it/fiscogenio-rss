@@ -1,3 +1,16 @@
 import os
+from dotenv import load_dotenv
 
-OPENAI_API_KEY = "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"
+load_dotenv()  # Load from .env if running locally
+
+# OpenAI API Key
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Save BigQuery credentials from the env variable
+BIGQUERY_CREDENTIALS_PATH = "credentials.json"
+
+if os.getenv("BIGQUERY_CREDENTIALS"):  # If running in GitHub Actions
+    with open(BIGQUERY_CREDENTIALS_PATH, "w") as f:
+        f.write(os.getenv("BIGQUERY_CREDENTIALS"))
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = BIGQUERY_CREDENTIALS_PATH

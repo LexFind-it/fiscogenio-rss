@@ -31,7 +31,7 @@ def fetch_documents():
 def extract_text_from_pdf(pdf_url):
     """Downloads a PDF from a URL and extracts text."""
     try:
-        response = requests.get(url)
+        response = requests.get(pdf_url)
         if response.status_code == 200:
             with pdfplumber.open(io.BytesIO(response.content)) as pdf:
                 # Extract text from the first few pages (to avoid huge documents)

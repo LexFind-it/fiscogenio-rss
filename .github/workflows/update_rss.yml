@@ -1,9 +1,9 @@
 name: Update RSS Feed
 
 on:
-  workflow_dispatch:  # Allows manual trigger
   schedule:
     - cron: "0 0 * * *"  # Runs every day at midnight UTC
+  workflow_dispatch:  # Allows manual runs
 
 jobs:
   update_rss:
@@ -19,6 +19,12 @@ jobs:
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
+
+      - name: Set Environment Variables
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo '${{ secrets.BIGQUERY_CREDENTIALS_JSON }}' > credentials.json
+          echo "BIGQUERY_CREDENTIALS=$(pwd)/credentials.json" >> $GITHUB_ENV
 
       - name: Run Script
         run: python main.py

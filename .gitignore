@@ -1,0 +1,16 @@
+# Ignore environment variables
+.env
+credentials.json
+
+# Ignore compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+# Ignore VSCode and system files
+.vscode/
+.DS_Store
