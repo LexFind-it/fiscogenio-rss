@@ -75,12 +75,13 @@ def generate_summary(text, original_summary):
 
     Struttura il riassunto con un **breve titolo** che riassuma il tema principale e 2-3 frasi di spiegazione.
     """
+
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        messages=[
-            {"role": "system", "content": "Sei un esperto di diritto tributario italiano."},
+        messages=[{
+            {"role": "system", "content": "Sei un esperto di diritto tributario italiano che gestisce una pagina linkedin."},
             {"role": "user", "content": prompt}
-        ]
+        }],
+        model="gpt-4o-mini",
     )
 
     return response.choices[0].message.content
