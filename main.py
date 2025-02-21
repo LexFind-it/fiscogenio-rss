@@ -33,10 +33,10 @@ def fetch_documents():
     """Get new tax documents from BigQuery"""
     query = """
         SELECT title, url, original_summary, upload_date
-        FROM `taxfinder-mvp.sources_metadata.documents_agenzia_entrate`
-        WHERE upload_date >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY)
-        ORDER BY upload_date DESC
-        LIMIT 5
+        FROM `tuo_progetto.tuo_dataset.tua_tabella`
+        WHERE DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) =
+            PARSE_DATE('%d/%m/%Y', REGEXP_EXTRACT(title, r'(\d{2}/\d{2}/\d{4})'))
+        ORDER BY PARSE_DATE('%d/%m/%Y', REGEXP_EXTRACT(title, r'(\d{2}/\d{2}/\d{4})')) DESC
     """
     return [dict(row) for row in client.query(query).result()]
 
@@ -63,14 +63,34 @@ def generate_summary(text, original_summary):
     - **Testo estratto dal documento**: {text}
     - **Riassunto originale**: {original_summary}
 
-    Genera un post linkedin con un riassunto chiaro e sintetico in italiano, adatto a professionisti fiscali (avvocati tributaristi, commercialisti, consulenti del lavoro).
-    Il post deve avere la seguente struttura:
-    - **novità normative** introdotte dal documento.
-    - **implicazioni pratiche** per aziende e professionisti.
+    🔎 **Obiettivo:**
+    Genera un post LinkedIn chiaro e sintetico in italiano, adatto a professionisti fiscali (avvocati tributaristi, commercialisti, consulenti del lavoro).
 
-    Mantenere un tono tecnico ma leggibile e evitare ridondanze e informazioni inutili. Usa emoticon per aumentare la leggibilità.
+    📝 **Struttura del post:**
+    1️⃣ **Titolo breve e chiaro** (senza formattazione Markdown).
+    2️⃣ **Novità normative** introdotte dal documento (usa una frase breve e diretta).
+    3️⃣ **Implicazioni pratiche** per aziende e professionisti.
+    4️⃣ **Aggiungi hashtag automatici** su parole chiave rilevanti, come concetti fiscali, leggi, enti e settori interessati.
 
-    Struttura il riassunto con un **breve titolo** che riassuma il tema principale e 2-3 frasi di spiegazione.
+
+    ✅ **Regole di stile:**
+    - Scrivi in modo chiaro e leggibile, evitando un linguaggio troppo tecnico.
+    - Usa emoji per migliorare la leggibilità (📌⚖️💼).
+    - Evita ripetizioni e informazioni superflue.
+    - Aggiungi **hashtag automatici** sulle parole chiave più importanti (es. #Fisco, #Tasse, #IVA, #LeggeBilancio).
+    - Formatta il testo con spaziature per renderlo leggibile su LinkedIn.
+
+    🎯 **Esempio di output desiderato:**
+
+    📢 Nuove regole fiscali per le plusvalenze sui metalli preziosi
+
+    ⚖️ L' #AgenziaDelleEntrate ha chiarito che anche il #palladio è considerato un metallo prezioso ai fini fiscali.
+
+    🪙 Cosa cambia? Le plusvalenze dalla vendita di palladio saranno soggette a un'imposta del 26%.
+
+    💼 Cosa significa per te? I professionisti del settore devono includere il palladio nella pianificazione fiscale.
+
+    Scrivi il post seguendo questa struttura e stile.
     """
 
     response = openai.ChatCompletion.create(
