@@ -34,7 +34,7 @@ def fetch_documents():
     query = """
         SELECT title, url, original_summary, upload_date
         FROM `taxfinder-mvp.sources_metadata.documents_agenzia_entrate`
-        WHERE DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) =
+        WHERE DATE_SUB(CURRENT_DATE(), INTERVAL 2 DAY) =
             PARSE_DATE('%d/%m/%Y', REGEXP_EXTRACT(title, r'(\d{2}/\d{2}/\d{4})'))
         ORDER BY PARSE_DATE('%d/%m/%Y', REGEXP_EXTRACT(title, r'(\d{2}/\d{2}/\d{4})')) DESC
     """
