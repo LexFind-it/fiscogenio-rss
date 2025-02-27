@@ -43,7 +43,7 @@ def create_rss_feed(articles, output_file="feed.xml"):
         claim = generate_short_claim(article["ai_summary"])
         image_filename = re.sub(r'[^\w\-_\.]', '_', f"{article['title']}.png")
         image_path = generate_social_image(claim, f"Agenzia delle Entrate: \n{article['title']}", f"public/img/{image_filename}")
-        image_url = f"https://github.com/PaoloPiacenti/lexfindit/fiscogenio_rss/public/img/{image_filename}"
+        image_url = f"https://lexfind-it.github.io/fiscogenio-rss/public/img/{image_filename}"
         #image_url = f"http://localhost:8000/public/img/{image_filename}" # Localhost testing
 
         items += ITEM_TEMPLATE.format(
