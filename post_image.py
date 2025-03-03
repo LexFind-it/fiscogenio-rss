@@ -85,7 +85,7 @@ def generate_social_image(text, source, output_path="output_image.png"):
     bg_color, font_color,LOGO_PATH = colors
 
     # Crea una nuova immagine
-    img = Image.new("RGB", (1080, 1080), color=bg_color)
+    img = Image.new("RGB", (1080, 1350), color=bg_color)
     draw = ImageDraw.Draw(img)
 
     # Carica il font
@@ -96,21 +96,21 @@ def generate_social_image(text, source, output_path="output_image.png"):
     wrapped_text = textwrap.fill(text, width=20)
 
     # Posiziona il testo centrato
-    text_x, text_y = 100, 340
+    text_x, text_y = 100, 500
     draw.text((text_x, text_y), wrapped_text, font=font_bold, fill=font_color)
 
     # Aggiungi la fonte in piccolo
     source_text = source
-    draw.text((100, 900), source_text, font=font, fill=font_color)
+    draw.text((100, 1100), source_text, font=font, fill=font_color)
 
     # Carica e posiziona il logo
     if os.path.exists(LOGO_PATH):
         logo = Image.open(LOGO_PATH).convert("RGBA")
-        logo = logo.resize((810, 160))  # Resize se necessario
-        img.paste(logo, (30, 80), logo)
+        logo = logo.resize((700, 140))  # Resize se necessario
+        img.paste(logo, (50, 100), logo)
 
     # Salva l'immagine
-    img.save(output_path)
+    img.save(output_path, format="PNG", optimize=True) #Corrected line
     return output_path
 
 
