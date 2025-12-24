@@ -4,20 +4,36 @@
         <title>FiscoGenio AI - Tax News</title>
         <link>https://www.fiscogenio.ai/rss</link>
         <description>Latest updates from Agenzia delle Entrate</description>
-        <lastBuildDate>Tue, 23 Dec 2025 07:20:36 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Dec 2025 07:20:45 GMT</lastBuildDate>
         
     <item>
-        <title>Provvedimento del 22/12/2025</title>
-        <link>https://www.agenziaentrate.gov.it/portale/documents/20143/9497952/Provvedimento+cambi+valute+estere+novembre+2025.pdf/cf3a6cf5-95aa-a954-9c4a-ae06193fd787?t=1766407365716</link>
-        <description>📢 Accertamento delle medie dei cambi delle valute estere per novembre 2025
+        <title>Risposta n. 318 del 23/12/2025</title>
+        <link>https://www.agenziaentrate.gov.it/portale/documents/20143/9487538/Risposta+n.+318_2025.pdf/6383f3b3-c9b1-5417-3868-a61264f4105b?t=1766485395602</link>
+        <description>📢 Chiarimenti sulla base imponibile per crediti fruttiferi in caso di successione
 
-⚖️ La #BancaDItalia ha pubblicato le medie dei cambi per le valute estere relative a novembre 2025, cruciali per il calcolo delle imposte sui redditi.
+⚖️ L' #AgenziaDelleEntrate ha fornito indicazioni sui criteri per la determinazione della base imponibile dell'attivo ereditario, specificando che i crediti fruttiferi devono includere le operazioni di prelievo effettuate prima del decesso, anche se contabilizzate successivamente.
 
-💼 Cosa significa per le aziende? È fondamentale tenere in considerazione questi tassi di cambio aggiornati nella gestione delle transazioni internazionali e nella dichiarazione fiscale.
+💼 Implicazioni pratiche: I professionisti fiscali devono considerare il saldo effettivo al momento del decesso, comprese le operazioni di prelievo, per una corretta valutazione dell'imposta di successione.
 
-#Fisco #Tasse #Valute #TUIR #Tributi</description>
-        <pubDate>Tue, 23 Dec 2025 07:20:39 GMT</pubDate>
-        <enclosure url="https://lexfind-it.github.io/fiscogenio-rss/public/img/Provvedimento_del_22_12_2025.png" type="image/png" />
+#Fisco #Successioni #Imposte #Tributi #ConsulenzaFiscale #Legge346</description>
+        <pubDate>Wed, 24 Dec 2025 07:20:46 GMT</pubDate>
+        <enclosure url="https://lexfind-it.github.io/fiscogenio-rss/public/img/Risposta_n._318_del_23_12_2025.png" type="image/png" />
+    </item>
+
+    <item>
+        <title>Risposta n. 317 del 23/12/2025</title>
+        <link>https://www.agenziaentrate.gov.it/portale/documents/20143/9487538/Risposta+n.+317_2025.pdf/48bf77e3-5e1c-095c-d9c9-322ae1a09410?t=1766483955356</link>
+        <description>📢 Nuovo regime agevolativo per i lavoratori impatriati
+
+⚖️ L' #AgenziaDelleEntrate ha introdotto con il decreto legislativo n. 209 del 27 dicembre 2023 un nuovo regime fiscale agevolato per i lavoratori che rientrano in Italia dopo un periodo di lavoro all'estero.
+
+💼 Implicazioni pratiche? Chi è stato in aspettativa non retribuita all'estero e torna a riprendere servizio presso il proprio datore di lavoro può beneficiare delle nuove agevolazioni fiscali, senza la necessità di una discontinuità lavorativa.
+
+📌 Assicurati di aggiornare la pianificazione fiscale in base a queste novità!
+
+#Fisco #Tasse #Lavoro #Impatriati #LeggeBilancio #AgenziaEntrate #Consulting</description>
+        <pubDate>Wed, 24 Dec 2025 07:20:48 GMT</pubDate>
+        <enclosure url="https://lexfind-it.github.io/fiscogenio-rss/public/img/Risposta_n._317_del_23_12_2025.png" type="image/png" />
     </item>
 
     </channel>
